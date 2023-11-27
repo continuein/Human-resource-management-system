@@ -78,24 +78,15 @@ export default {
       },
       rules: {
         oldPassword: [{
-          required: true,
-          message: 'The old password can not be empty',
-          trigger: 'blur'
+          required: true, message: 'The old password can not be empty', trigger: 'blur'
         }],
         newPassword: [{
-          required: true,
-          message: 'The new password can not be empty',
-          trigger: 'blur'
+          required: true, message: 'The new password can not be empty', trigger: 'blur'
         }, {
-          min: 6,
-          max: 16,
-          message: 'The password should be between 6 and 16 characters long',
-          trigger: 'blur'
+          min: 6, max: 16, message: 'The password should be between 6 and 16 characters long', trigger: 'blur'
         }],
         confirmPassword: [{
-          required: true,
-          message: 'The duplicate password can not be empty',
-          trigger: 'blur'
+          required: true, message: 'The duplicate password can not be empty', trigger: 'blur'
         }, {
           validator: (rule, value, callback) => {
             if (value === this.passForm.newPassword) {
@@ -131,7 +122,7 @@ export default {
       this.$router.push('login')
     },
     btnOk() {
-      this.$refs.passForm.validata(async isOk => {
+      this.$refs.passForm.validate(async isOk => {
         if (isOk) {
           // 调用接口
           await updatePassword(this.passForm)
